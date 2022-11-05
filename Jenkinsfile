@@ -3,7 +3,7 @@ pipeline {
     agent any
 /*
 	tools {
-        maven "maven3"
+        maven "MAVEN3"
     }
 */
     environment {
@@ -70,7 +70,7 @@ pipeline {
 
         stage('Remove Unused docker image') {
           steps{
-            sh "docker rmi $registry:$BUILD_NUMBER"
+            sh "docker rmi $registry:V$BUILD_NUMBER"
           }
         }
 
@@ -83,7 +83,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonar-pro') {
                     sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
-                   -Dsonar.projectName=vprofile-repo \
+                   -Dsonar.projectName=vprofile-asad \
                    -Dsonar.projectVersion=1.0 \
                    -Dsonar.sources=src/ \
                    -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ \
