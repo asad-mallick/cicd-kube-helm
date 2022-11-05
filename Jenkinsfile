@@ -6,6 +6,10 @@ pipeline {
         maven "MAVEN3"
     }
 */
+
+/* Dont forget to install openjdk-8-jdk and maven in the jenkins machine, other version of java
+   will not work with this project.
+*/
     environment {
         registry = "mallickasad/vprofileapp"
         registryCredential = 'dockerhub'
